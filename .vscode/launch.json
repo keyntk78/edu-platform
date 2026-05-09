@@ -22,18 +22,18 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug api-gateway with Nx",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["nx", "serve", "api-gateway"],
+      "name": "Debug bff-service with Nx",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["exec", "nx", "serve", "bff-service"],
       "env": {
-        "NODE_OPTIONS": "--inspect=9230"
+        "NODE_OPTIONS": "--inspect=9231"
       },
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
       "skipFiles": ["<node_internals>/**"],
       "sourceMaps": true,
       "outFiles": [
-        "${workspaceFolder}/apps/api-gateway/dist/**/*.(m|c|)js",
+        "${workspaceFolder}/apps/bff-service/dist/**/*.(m|c|)js",
         "!**/node_modules/**"
       ]
     }

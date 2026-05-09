@@ -1,7 +1,7 @@
 {
-  "name": "api-gateway",
+  "name": "bff-service",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/api-gateway/src",
+  "sourceRoot": "apps/bff-service/src",
   "projectType": "application",
   "tags": [],
   "targets": {
@@ -10,7 +10,7 @@
       "options": {
         "command": "webpack-cli build",
         "args": ["--node-env=production"],
-        "cwd": "apps/api-gateway"
+        "cwd": "apps/bff-service"
       },
       "configurations": {
         "development": {
@@ -23,8 +23,8 @@
       "cache": true,
       "executor": "@nx/js:prune-lockfile",
       "outputs": [
-        "{workspaceRoot}/dist/apps/api-gateway/package.json",
-        "{workspaceRoot}/dist/apps/api-gateway/package-lock.json"
+        "{workspaceRoot}/dist/apps/bff-service/package.json",
+        "{workspaceRoot}/dist/apps/bff-service/pnpm-lock.yaml"
       ],
       "options": {
         "buildTarget": "build"
@@ -33,7 +33,7 @@
     "copy-workspace-modules": {
       "dependsOn": ["build"],
       "cache": true,
-      "outputs": ["{workspaceRoot}/dist/apps/api-gateway/workspace_modules"],
+      "outputs": ["{workspaceRoot}/dist/apps/bff-service/workspace_modules"],
       "executor": "@nx/js:copy-workspace-modules",
       "options": {
         "buildTarget": "build"
@@ -49,15 +49,15 @@
       "defaultConfiguration": "development",
       "dependsOn": ["build"],
       "options": {
-        "buildTarget": "api-gateway:build",
+        "buildTarget": "bff-service:build",
         "runBuildTargetDependencies": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "api-gateway:build:development"
+          "buildTarget": "bff-service:build:development"
         },
         "production": {
-          "buildTarget": "api-gateway:build:production"
+          "buildTarget": "bff-service:build:production"
         }
       }
     },
