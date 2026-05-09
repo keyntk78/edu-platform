@@ -1,7 +1,11 @@
+import { IsNotEmpty, IsNumber } from 'class-validator';
+
 export class AppConfiguration {
-  PORT: string;
+  @IsNumber()
+  @IsNotEmpty()
+  PORT: number;
 
   constructor() {
-    this.PORT = process.env['PORT'] || 'development';
+    this.PORT = Number(process.env['PORT']) || 3000;
   }
 }
