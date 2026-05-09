@@ -50,11 +50,13 @@
       "dependsOn": ["build"],
       "options": {
         "buildTarget": "bff-service:build",
-        "runBuildTargetDependencies": false
+        "runBuildTargetDependencies": false,
+        "watch": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "bff-service:build:development"
+          "buildTarget": "bff-service:build:development",
+          "watch": true
         },
         "production": {
           "buildTarget": "bff-service:build:production"

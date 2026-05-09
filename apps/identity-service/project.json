@@ -52,11 +52,13 @@
       "dependsOn": ["build"],
       "options": {
         "buildTarget": "identity-service:build",
-        "runBuildTargetDependencies": false
+        "runBuildTargetDependencies": false,
+        "watch": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "identity-service:build:development"
+          "buildTarget": "identity-service:build:development",
+          "watch": true
         },
         "production": {
           "buildTarget": "identity-service:build:production"
