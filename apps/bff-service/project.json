@@ -51,15 +51,24 @@
       "options": {
         "buildTarget": "bff-service:build",
         "runBuildTargetDependencies": false,
-        "watch": true
+        "watch": true,
+        "inspect": false
       },
       "configurations": {
         "development": {
           "buildTarget": "bff-service:build:development",
-          "watch": true
+          "watch": true,
+          "inspect": false
         },
         "production": {
-          "buildTarget": "bff-service:build:production"
+          "buildTarget": "bff-service:build:production",
+          "inspect": false
+        },
+        "debug": {
+          "buildTarget": "bff-service:build:development",
+          "watch": false,
+          "inspect": true,
+          "runtimeArgs": ["--inspect-brk=9231"]
         }
       }
     },

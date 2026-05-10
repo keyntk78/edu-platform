@@ -6,6 +6,7 @@
     "prepare": "husky",
     "dev": "nx run-many -t serve",
     "dev:bff": "nx serve bff-service",
+    "dev:bff:debug": "nx serve bff-service --configuration=debug",
     "dev:identity": "nx serve identity-service",
     "build": "nx run-many -t build",
     "build:bff": "nx build bff-service",

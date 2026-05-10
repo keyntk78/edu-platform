@@ -1,5 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
+import { ResponseDto } from '@common/dtos/gateway/response.dto';
+import { HttpMessage } from '@common/constants/enum/http-message.enum';
 
 @Controller('app')
 export class AppController {
@@ -7,6 +9,7 @@ export class AppController {
 
   @Get()
   getData() {
-    return this.appService.getData();
+    const result = this.appService.getData();
+    return new ResponseDto({ message: HttpMessage.OK, data: result });
   }
 }
