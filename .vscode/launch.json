@@ -14,28 +14,31 @@
       "internalConsoleOptions": "neverOpen",
       "skipFiles": ["<node_internals>/**"],
       "sourceMaps": true,
-      "outFiles": [
-        "${workspaceFolder}/apps/identity-service/dist/**/*.(m|c|)js",
-        "!**/node_modules/**"
-      ]
+      "outFiles": ["${workspaceFolder}/apps/identity-service/dist/**/*.(m|c|)js", "!**/node_modules/**"]
     },
     {
       "type": "node",
-      "request": "launch",
-      "name": "Debug api-gateway with Nx",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["nx", "serve", "api-gateway"],
-      "env": {
-        "NODE_OPTIONS": "--inspect=9230"
-      },
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "skipFiles": ["<node_internals>/**"],
+      "request": "attach",
+      "name": "Attach to api-gateway",
+      "port": 9231,
+      "restart": false,
       "sourceMaps": true,
-      "outFiles": [
-        "${workspaceFolder}/apps/api-gateway/dist/**/*.(m|c|)js",
-        "!**/node_modules/**"
-      ]
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "${workspaceFolder}",
+      "outFiles": ["${workspaceFolder}/dist/apps/api-gateway/**/*.js", "!**/node_modules/**"],
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach to identity-service",
+      "port": 9229,
+      "restart": false,
+      "sourceMaps": true,
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "${workspaceFolder}",
+      "outFiles": ["${workspaceFolder}/dist/apps/identity-service/**/*.js", "!**/node_modules/**"],
+      "skipFiles": ["<node_internals>/**"]
     }
   ]
 }

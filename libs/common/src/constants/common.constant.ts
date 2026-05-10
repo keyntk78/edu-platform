@@ -1,0 +1,6 @@
+export const COMMON_PORT = 3000;
+
+export enum MetaDataKeys {
+  PROCESS_ID = 'processId',
+  START_TIME = 'startTime',
+}

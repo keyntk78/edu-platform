@@ -53,19 +53,7 @@ export default {
     'type-enum': [
       2, // level 2 = error: bắt buộc phải dùng đúng type
       'always', // luôn kiểm tra
-      [
-        'feat',
-        'fix',
-        'docs',
-        'style',
-        'refactor',
-        'perf',
-        'test',
-        'build',
-        'ci',
-        'chore',
-        'revert',
-      ],
+      ['feat', 'fix', 'docs', 'style', 'refactor', 'perf', 'test', 'build', 'ci', 'chore', 'revert'],
     ],
 
     /**
@@ -119,11 +107,7 @@ export default {
      *
      * => Chỉ chấp nhận lower-case (viết thường) cho chữ cái đầu tiên.
      */
-    'subject-case': [
-      2,
-      'never',
-      ['sentence-case', 'start-case', 'pascal-case', 'upper-case'],
-    ],
+    'subject-case': [2, 'never', ['sentence-case', 'start-case', 'pascal-case', 'upper-case']],
 
     /**
      * subject-full-stop: Không cho phép dấu chấm (.) ở cuối tiêu đề.
@@ -178,12 +162,12 @@ export default {
 
     /**
      * header-max-length: Giới hạn độ dài tối đa của toàn bộ dòng tiêu đề.
-     * 72 ký tự là giới hạn được khuyến nghị để hiển thị đẹp trên GitHub.
+     * 300 ký tự là giới hạn được khuyến nghị để hiển thị đẹp trên GitHub.
      *
      * Cấu trúc tiêu đề: type(scope?): subject
-     * Ví dụ: feat(auth): thêm chức năng đăng nhập bằng email và mật khẩu (72 ký tự)
+     * Ví dụ: feat(auth): thêm chức năng đăng nhập bằng email và mật khẩu (300 ký tự)
      */
-    'header-max-length': [2, 'always', 72],
+    'header-max-length': [2, 'always', 300],
   },
 
   /*
@@ -217,6 +201,5 @@ export default {
    * helpUrl: Đường dẫn trợ giúp hiển thị khi commit bị reject.
    * Người dùng có thể truy cập link này để xem hướng dẫn chi tiết.
    */
-  helpUrl:
-    'https://github.com/conventional-changelog/commitlint/#what-is-commitlint',
+  helpUrl: 'https://github.com/conventional-changelog/commitlint/#what-is-commitlint',
 };
