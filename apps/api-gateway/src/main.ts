@@ -37,11 +37,7 @@ async function bootstrap() {
       })
       .build();
     const documentFactory = () => SwaggerModule.createDocument(app, config);
-    SwaggerModule.setup(
-      `${AppModule.CONFIG.GLOBAL_PREFIX}/docs`,
-      app,
-      documentFactory,
-    );
+    SwaggerModule.setup(`${AppModule.CONFIG.GLOBAL_PREFIX}/docs`, app, documentFactory);
 
     await app.listen(AppModule.CONFIG.APP_CONFIG.PORT, () => {
       Logger.log(

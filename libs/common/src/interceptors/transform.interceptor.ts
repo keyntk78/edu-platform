@@ -6,8 +6,6 @@ import { ResponseDto } from '../dtos/response.dto';
 @Injectable()
 export class TransformInterceptor<T> implements NestInterceptor<T, ResponseDto<T>> {
   intercept(context: ExecutionContext, next: CallHandler): Observable<ResponseDto<T>> {
-    return next.handle().pipe(
-      map((data) => new ResponseDto({ data })),
-    );
+    return next.handle().pipe(map((data) => new ResponseDto({ data })));
   }
 }
