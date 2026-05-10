@@ -11,13 +11,13 @@ export class LoggerMiddleware implements NestMiddleware {
     const processId = getProcessId('req');
     const now = Date.now();
 
-    const extendedRes = res as Response & {
+    const extendedReq = req as Request & {
       [MetaDataKeys.PROCESS_ID]?: string;
       [MetaDataKeys.START_TIME]?: number;
     };
 
-    extendedRes[MetaDataKeys.PROCESS_ID] = processId;
-    extendedRes[MetaDataKeys.START_TIME] = startTime;
+    extendedReq[MetaDataKeys.PROCESS_ID] = processId;
+    extendedReq[MetaDataKeys.START_TIME] = startTime;
 
     Logger.log(
       `

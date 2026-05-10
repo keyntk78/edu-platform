@@ -7,6 +7,8 @@
   "targets": {
     "build": {
       "executor": "nx:run-commands",
+      "inputs": ["{projectRoot}/src/**/*"],
+      "outputs": ["{workspaceRoot}/dist/apps/bff-service"],
       "options": {
         "command": "webpack-cli build",
         "args": ["--node-env=production"],
@@ -44,31 +46,32 @@
       "executor": "nx:noop"
     },
     "serve": {
-      "continuous": true,
-      "executor": "@nx/js:node",
+      "executor": "nx:run-commands",
       "defaultConfiguration": "development",
       "dependsOn": ["build"],
       "options": {
-        "buildTarget": "bff-service:build",
-        "runBuildTargetDependencies": false,
-        "watch": true,
-        "inspect": false
+        "parallel": true,
+        "commands": [
+          "webpack-cli build --node-env=production --watch",
+          "node --watch ../../dist/apps/bff-service/main.js"
+        ],
+        "cwd": "apps/bff-service"
       },
       "configurations": {
         "development": {
-          "buildTarget": "bff-service:build:development",
-          "watch": true,
-          "inspect": false
+          "commands": [
+            "webpack-cli build --node-env=development --watch",
+            "node --watch ../../dist/apps/bff-service/main.js"
+          ]
         },
         "production": {
-          "buildTarget": "bff-service:build:production",
-          "inspect": false
+          "commands": ["webpack-cli build --node-env=production", "node ../../dist/apps/bff-service/main.js"]
         },
         "debug": {
-          "buildTarget": "bff-service:build:development",
-          "watch": false,
-          "inspect": true,
-          "runtimeArgs": ["--inspect-brk=9231"]
+          "commands": [
+            "webpack-cli build --node-env=development",
+            "node --inspect-brk=9231 ../../dist/apps/bff-service/main.js"
+          ]
         }
       }
     },
