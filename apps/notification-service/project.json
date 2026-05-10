@@ -1,0 +1,53 @@
+{
+  "name": "notification-service",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/notification-service/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "inputs": ["{projectRoot}/src/**/*"],
+      "outputs": ["{workspaceRoot}/dist/apps/notification-service"],
+      "options": {
+        "command": "webpack-cli build",
+        "args": ["--node-env=production"],
+        "cwd": "apps/notification-service"
+      },
+      "configurations": {
+        "development": { "args": ["--node-env=development"] }
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "parallel": true,
+        "commands": [
+          "webpack-cli build --node-env=production --watch",
+          "node --watch ../../dist/apps/notification-service/main.js"
+        ],
+        "cwd": "apps/notification-service"
+      },
+      "configurations": {
+        "development": {
+          "commands": [
+            "webpack-cli build --node-env=development --watch",
+            "node --watch ../../dist/apps/notification-service/main.js"
+          ]
+        },
+        "production": {
+          "commands": ["webpack-cli build --node-env=production", "node ../../dist/apps/notification-service/main.js"]
+        },
+        "debug": {
+          "commands": [
+            "webpack-cli build --node-env=development",
+            "node --inspect-brk=9237 ../../dist/apps/notification-service/main.js"
+          ]
+        }
+      }
+    },
+    "test": { "options": { "passWithNoTests": true } }
+  }
+}

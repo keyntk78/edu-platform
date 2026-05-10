@@ -19,13 +19,13 @@
     {
       "type": "node",
       "request": "attach",
-      "name": "Attach to bff-service",
+      "name": "Attach to api-gateway",
       "port": 9231,
       "restart": false,
       "sourceMaps": true,
       "localRoot": "${workspaceFolder}",
       "remoteRoot": "${workspaceFolder}",
-      "outFiles": ["${workspaceFolder}/dist/apps/bff-service/**/*.js", "!**/node_modules/**"],
+      "outFiles": ["${workspaceFolder}/dist/apps/api-gateway/**/*.js", "!**/node_modules/**"],
       "skipFiles": ["<node_internals>/**"]
     },
     {

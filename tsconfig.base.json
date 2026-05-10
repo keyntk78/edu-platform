@@ -14,12 +14,7 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "paths": {
-      "@common/constants/*": ["./libs/constants/src/lib/*"],
-      "@common/configuration/*": ["./libs/configuration/src/lib/*"],
-      "@common/middlewares/*": ["./libs/middlewares/src/lib/*"],
-      "@common/utils/*": ["./libs/utils/src/lib/*"],
-      "@common/dtos/*": ["./libs/dtos/src/lib/*"],
-      "@common/interceptors/*": ["./libs/interceptors/src/lib/*"]
+      "@common/*": ["./libs/common/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
